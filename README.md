@@ -7,14 +7,16 @@
 3. Swagger UI: http://localhost:8080/swagger-ui/index.html
 
 ## Design Decisions
-- Entities: Item, Variant, Stock
-- Variant linked to Item (one-to-many)
-- Stock linked to Variant
-- Validation to prevent selling out-of-stock items
+- Entity utama untuk Fitur 1: Item
+- Validasi: mencegah membuat item dengan nama duplikat
+
+## note
+- Variant dan Stock akan diimplementasikan di fitur berikutnya
+
 
 ## Assumptions
-- All prices in USD
-- In-memory DB (H2) for simplicity
+- Semua harga dalam USD
+- Database H2 in-memory untuk simplicity
 
 ## API Examples
 - GET /items
