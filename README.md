@@ -1,76 +1,87 @@
 # Shop Warehouse API
 
-## How to Run
+## 🚀 How to Run
 1. Clone repo
 2. Run:
    mvn spring-boot:run
 3. Swagger UI: http://localhost:8080/swagger-ui/index.html
 
-## Design Decisions
-- Entity utama untuk Fitur 1: Item
-- Validasi: mencegah membuat item dengan nama duplikat
+## 🧱 Design Decisions
+- Entity utama: Item
+- Satu Item dapat memiliki banyak Variant
+- Stock disimpan di Variant, bukan di Item 
+- Validasi:
+  - Tidak boleh membuat Item dengan nama duplikat
+  - Nama Variant harus unik per Item
+  - Variant harus selalu terhubung ke Item valid
 
-## note
-- Variant dan Stock akan diimplementasikan di fitur berikutnya
+## 📌 Assumptions
+- Harga menggunakan USD
+- Database menggunakan H2 In-Memory
+- API mengikuti standar RESTful
+- Manajemen stock hanya boleh via endpoint khusus add-stock dan reduce-stock
 
+## 📚 API Documentation
+### 🟩 ITEMS
+### Endpoints
+- Method	Endpoint	Description
+- GET	/api/items	Get all items
+- POST	/api/items	Create item
+- GET	/api/items/{id}	Get item by ID
+- PUT	/api/items/{id}	Update item
+- DELETE	/api/items/{id}	Delete item
 
-## Assumptions
-- Semua harga dalam USD
-- Database H2 in-memory untuk simplicity
+### JSON Format
+### ➕ POST /api/items
+- {
+  "name": "Laptop",
+  "description": "Laptop gaming 2025"
+  }
 
-### API Examples
-## ITEMS
-- GET /items
-- POST /items
-- GET /api/items/{id}
-- PUT /api/items/{id}
-- DELETE /api/items/{id}
-
-## format json
-# POST ITEMS
-{
-  "name": "",
-  "description": ""
-}
-# PUT ITEMS
-- sesuai idnya
-{
-  "name": "",
-  "description": ""
-}
-# GET ID ITEMS
-- masukan Idnya saja
-
-# GET ALL
-- tinggal execute
-
-## VARIANTS
-- POST /api/variants
-- GET /api/variants
-- POST /api/items/{id}
-- PUT /api/items/{id}
-- DELETE /api/items/{id}
-
-## format json
-# POST VARIANTS
-{
-  "name": "",
-  "price": 
-}
-# PUT
-- sesuaikan idnya
-{
-  "name": "Size L - New",
-  "price": 160000
+### ✏️ PUT /api/items/{id}
+- {
+  "name": "Laptop Updated",
+  "description": "Spesifikasi diperbarui"
 }
 
-# DELETE
-- masukan idnya
+### 🟧 VARIANTS
+### Endpoints
+- Method	Endpoint	Description
+- POST	/api/variants/items/{itemId}	Create variant
+- GET	/api/variants	Get all
+- PUT	/api/variants/{variantId}	Update variant
+- DELETE	/api/variants/{variantId}	Delete variant
+- POST	/api/variants/{id}/add-stock	Add stock
+- POST	/api/variants/{id}/reduce-stock	Reduce stock
 
-# GET ALL
-- tinggal execute
+### JSON Format
+### ➕ POST /api/variants/items/{itemId}
+- {
+  "name": "Laptop Hitam 16GB",
+  "price": 1500,
+  "stock": 10
+}
+### ✏️ PUT /api/variants/{id}
+- {
+  "name": "Laptop Hitam 32GB",
+  "price": 1800,
+  "stock": 15
+}
 
+### 🟥 STOCK OPERATIONS
+### ➕ Add Stock
+- POST /api/variants/{id}/add-stock
+- {
+  "amount": 5
+}
+### ➖ Reduce Stock
+- POST /api/variants/{id}/reduce-stock
+- {
+  "amount": 3
+}
 
-## Next Fitur API
-- GET /api/stock (akan diimplementasikan di fitur berikutnya)
-- POST /api/stock (akan diimplementasikan di fitur berikutnya)
+### ✅ NOTES
+- Reduce stock gagal bila stock tidak cukup
+- Add/Reduce stock mengembalikan stock terbaru
+- Validasi nama item & variant unik dilakukan di service
+- Variant tidak bisa dibuat tanpa Item yang valid

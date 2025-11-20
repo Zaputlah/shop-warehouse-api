@@ -26,11 +26,7 @@ public class Variant {
 
     private String name; 
     private BigDecimal price;
-
-    // @ManyToOne
-    // @JoinColumn(name = "item_id")
-    // @JsonBackReference 
-    // private Item item;
+    private int stock;
 
     @ManyToOne
     @JoinColumn(name = "item_id")

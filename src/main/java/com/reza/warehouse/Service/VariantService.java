@@ -54,4 +54,25 @@ public class VariantService {
             return true;
         }).orElse(false);
     }
+
+    public Variant addStock(Long variantId, int qty) {
+    Variant variant = variantRepository.findById(variantId)
+            .orElseThrow(() -> new RuntimeException("Variant not found"));
+
+    variant.setStock(variant.getStock() + qty);
+    return variantRepository.save(variant);
+}
+
+    public Variant reduceStock(Long variantId, int qty) {
+    Variant variant = variantRepository.findById(variantId)
+            .orElseThrow(() -> new RuntimeException("Variant not found"));
+
+    if (variant.getStock() < qty) {
+        throw new RuntimeException("Not enough stock");
+    }
+
+    variant.setStock(variant.getStock() - qty);
+    return variantRepository.save(variant);
+}
+
 }

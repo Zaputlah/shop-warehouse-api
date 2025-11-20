@@ -35,4 +35,15 @@ public class VariantController {
         variantService.deleteVariant(variantId);
     }
 
+    @PostMapping("/{id}/add-stock")
+    public Variant addStock(@PathVariable Long id, @RequestParam int qty) {
+        return variantService.addStock(id, qty);
+    }
+
+    @PostMapping("/{id}/reduce-stock")
+    public Variant reduceStock(@PathVariable Long id, @RequestParam int qty) {
+        return variantService.reduceStock(id, qty);
+    }
+
+
 }
