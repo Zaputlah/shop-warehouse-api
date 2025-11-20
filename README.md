@@ -80,6 +80,118 @@
   "amount": 3
 }
 
+### ✅ Saat berhasil
+### Json Items
+## Response POST
+{
+  "id": 1,
+  "name": "Laptop",
+  "description": "Laptop gaming 2025",
+  "variants": null
+}
+## Response GET All
+[
+  {
+    "id": 1,
+    "name": "Laptop",
+    "description": "Laptop gaming 2025",
+    "variants": []
+  }
+]
+## Response DELETE
+connection: keep-alive 
+ content-length: 0 
+ date: Thu,20 Nov 2025 16:24:16 GMT 
+ keep-alive: timeout=60 
+
+## Response PUT
+{
+  "id": 1,
+  "name": "Laptop asus",
+  "description": "Laptop gaming asus 2025",
+  "variants": []
+}
+## Response GET ID
+{
+  "id": 1,
+  "name": "Laptop asus",
+  "description": "Laptop gaming asus 2025",
+  "variants": []
+}
+
+### Json Variant
+## Response POST ID
+{
+  "id": 1,
+  "name": "Laptop Hitam 16GB",
+  "price": 1500,
+  "stock": 10,
+  "item": {
+    "id": 1,
+    "name": "Laptop asus",
+    "description": "Laptop gaming asus 2025"
+  }
+}
+## Response GET ALL
+[
+  {
+    "id": 1,
+    "name": "Laptop Hitam 16GB",
+    "price": 1500,
+    "stock": 10,
+    "item": {
+      "id": 1,
+      "name": "Laptop asus",
+      "description": "Laptop gaming asus 2025"
+    }
+  }
+]
+## Response PUT
+{
+  "id": 1,
+  "name": "Laptop Hitam 32GB",
+  "price": 1800,
+  "stock": 10,
+  "item": {
+    "id": 1,
+    "name": "Laptop asus",
+    "description": "Laptop gaming asus 2025"
+  }
+}
+## Response add stock
+{
+  "id": 1,
+  "name": "Laptop Hitam 32GB",
+  "price": 1800,
+  "stock": 20,
+  "item": {
+    "id": 1,
+    "name": "Laptop asus",
+    "description": "Laptop gaming asus 2025"
+  }
+}
+## Response reduce stock
+{
+  "id": 1,
+  "name": "Laptop Hitam 32GB",
+  "price": 1800,
+  "stock": 15,
+  "item": {
+    "id": 1,
+    "name": "Laptop asus",
+    "description": "Laptop gaming asus 2025"
+  }
+}
+
+### ❌ Saat gagal
+## ketika nama duplikat
+{
+  "timestamp": "2025-11-20T16:34:49.861+00:00",
+  "status": 500,
+  "error": "Internal Server Error",
+  "path": "/api/variants/1"
+}
+
 ### ✅ NOTES
 - Reduce stock gagal bila stock tidak cukup
 - Add/Reduce stock mengembalikan stock terbaru
