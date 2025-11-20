@@ -7,19 +7,19 @@
 3. Swagger UI: http://localhost:8080/swagger-ui/index.html
 
 ## 🧱 Design Decisions
-- Entity utama: Item
-- Satu Item dapat memiliki banyak Variant
-- Stock disimpan di Variant, bukan di Item 
-- Validasi:
-  - Tidak boleh membuat Item dengan nama duplikat
-  - Nama Variant harus unik per Item
-  - Variant harus selalu terhubung ke Item valid
+- Main entity: Item
+- One Item can have multiple Variants
+- Stock is stored in Variant, not in Item
+- Validation:
+  - Cannot create an Item with a duplicate name
+  - Variant name must be unique per Item
+  - Variant must always be linked to a valid Item
 
 ## 📌 Assumptions
-- Harga menggunakan USD
-- Database menggunakan H2 In-Memory
-- API mengikuti standar RESTful
-- Manajemen stock hanya boleh via endpoint khusus add-stock dan reduce-stock
+- Prices are in USD
+- Database uses H2 In-Memory
+- API follows RESTful standards
+- Stock management is only allowed via specific endpoints: add-stock and reduce-stock
 
 ## 📚 API Documentation
 ### 🟩 ITEMS
@@ -80,7 +80,7 @@
   "amount": 3
 }
 
-### ✅ Saat berhasil
+### ✅ On Success
 ### Json Items
 ## Response POST
 {
@@ -183,8 +183,8 @@ connection: keep-alive
   }
 }
 
-### ❌ Saat gagal
-## ketika nama duplikat
+### ❌ On Failure
+## When the name is duplicated
 {
   "timestamp": "2025-11-20T16:34:49.861+00:00",
   "status": 500,
@@ -193,7 +193,7 @@ connection: keep-alive
 }
 
 ### ✅ NOTES
-- Reduce stock gagal bila stock tidak cukup
-- Add/Reduce stock mengembalikan stock terbaru
-- Validasi nama item & variant unik dilakukan di service
-- Variant tidak bisa dibuat tanpa Item yang valid
+- Reduce stock fails if the stock is insufficient
+- Add/Reduce stock returns the latest stock
+- Validation for unique Item and Variant names is handled in the service
+- A Variant cannot be created without a valid Item
