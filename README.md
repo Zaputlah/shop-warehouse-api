@@ -18,10 +18,59 @@
 - Semua harga dalam USD
 - Database H2 in-memory untuk simplicity
 
-## API Examples
+### API Examples
+## ITEMS
 - GET /items
 - POST /items
-- GET /variants
-- POST /variants
-- GET /stock
-- POST /stock
+- GET /api/items/{id}
+- PUT /api/items/{id}
+- DELETE /api/items/{id}
+
+## format json
+# POST ITEMS
+{
+  "name": "",
+  "description": ""
+}
+# PUT ITEMS
+- sesuai idnya
+{
+  "name": "",
+  "description": ""
+}
+# GET ID ITEMS
+- masukan Idnya saja
+
+# GET ALL
+- tinggal execute
+
+## VARIANTS
+- POST /api/variants
+- GET /api/variants
+- POST /api/items/{id}
+- PUT /api/items/{id}
+- DELETE /api/items/{id}
+
+## format json
+# POST VARIANTS
+{
+  "name": "",
+  "price": 
+}
+# PUT
+- sesuaikan idnya
+{
+  "name": "Size L - New",
+  "price": 160000
+}
+
+# DELETE
+- masukan idnya
+
+# GET ALL
+- tinggal execute
+
+
+## Next Fitur API
+- GET /api/stock (akan diimplementasikan di fitur berikutnya)
+- POST /api/stock (akan diimplementasikan di fitur berikutnya)

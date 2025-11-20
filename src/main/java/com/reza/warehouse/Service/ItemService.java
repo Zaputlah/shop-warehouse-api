@@ -1,4 +1,4 @@
-package com.reza.warehouse.Service;
+package com.reza.warehouse.service;
 
 import com.reza.warehouse.model.Item;
 import com.reza.warehouse.repository.ItemRepository;
@@ -23,11 +23,26 @@ public class ItemService {
     }
 
     public Item createItem(Item item) {
+
+        // CEK NAMA SUDAH ADA
+        if (itemRepository.existsByName(item.getName())) {
+            throw new RuntimeException("Item name already exists: " + item.getName());
+        }
+
         return itemRepository.save(item);
     }
 
     public Item updateItem(Long id, Item item) {
         Item existing = getItemById(id);
+
+        // CEK JIKA NAMA BERUBAH
+        if (!existing.getName().equals(item.getName())) {
+            // CEK NAMA SUDAH ADA DI DB
+            if (itemRepository.existsByName(item.getName())) {
+                throw new RuntimeException("Item name already exists: " + item.getName());
+            }
+        }
+
         existing.setName(item.getName());
         existing.setDescription(item.getDescription());
         return itemRepository.save(existing);

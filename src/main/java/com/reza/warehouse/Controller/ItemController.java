@@ -1,10 +1,8 @@
-package com.reza.warehouse.Controller;
+package com.reza.warehouse.controller;
 
-import com.reza.warehouse.Service.ItemService;
+import com.reza.warehouse.service.ItemService;
 import com.reza.warehouse.model.Item;
 import lombok.RequiredArgsConstructor;
-
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
