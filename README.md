@@ -1,10 +1,6 @@
 # Shop Warehouse API
 
-## 🚀 How to Run
-1. Clone repo
-2. Run:
-   mvn spring-boot:run
-3. Swagger UI: http://localhost:8080/swagger-ui/index.html
+<table> <tr> <td align="center"><b>Step</b></td> <td align="center"><b>Perintah / Link</b></td> </tr> <tr> <td>Clone Repository</td> <td><code>git clone &lt;repo-url&gt;</code></td> </tr> <tr> <td>Jalankan Aplikasi</td> <td><code>mvn spring-boot:run</code></td> </tr> <tr> <td>Swagger UI</td> <td><a href="http://localhost:8080/swagger-ui/index.html">http://localhost:8080/swagger-ui/index.html</a></td> </tr> </table>
 
 ## 🧱 Design Decisions
 - Main entity: Item
@@ -23,13 +19,7 @@
 
 ## 📚 API Documentation
 ### 🟩 ITEMS
-### Endpoints
-- Method	Endpoint	Description
-- GET	/api/items	Get all items
-- POST	/api/items	Create item
-- GET	/api/items/{id}	Get item by ID
-- PUT	/api/items/{id}	Update item
-- DELETE	/api/items/{id}	Delete item
+<table> <tr> <th>Method</th> <th>Endpoint</th> <th>Deskripsi</th> </tr> <tr><td>GET</td><td>/api/items</td><td>Get all items</td></tr> <tr><td>POST</td><td>/api/items</td><td>Create item</td></tr> <tr><td>GET</td><td>/api/items/{id}</td><td>Get item by ID</td></tr> <tr><td>PUT</td><td>/api/items/{id}</td><td>Update item</td></tr> <tr><td>DELETE</td><td>/api/items/{id}</td><td>Delete item</td></tr> </table>
 
 ### JSON Format
 ### ➕ POST /api/items
@@ -46,13 +36,7 @@
 
 ### 🟧 VARIANTS
 ### Endpoints
-- Method	Endpoint	Description
-- POST	/api/variants/items/{itemId}	Create variant
-- GET	/api/variants	Get all
-- PUT	/api/variants/{variantId}	Update variant
-- DELETE	/api/variants/{variantId}	Delete variant
-- POST	/api/variants/{id}/add-stock	Add stock
-- POST	/api/variants/{id}/reduce-stock	Reduce stock
+<table> <tr> <th>Method</th> <th>Endpoint</th> <th>Deskripsi</th> </tr> <tr><td>POST</td><td>/api/variants/items/{itemId}</td><td>Create variant</td></tr> <tr><td>GET</td><td>/api/variants</td><td>Get all variants</td></tr> <tr><td>PUT</td><td>/api/variants/{variantId}</td><td>Update variant</td></tr> <tr><td>DELETE</td><td>/api/variants/{variantId}</td><td>Delete variant</td></tr> <tr><td>POST</td><td>/api/variants/{id}/add-stock</td><td>Add stock</td></tr> <tr><td>POST</td><td>/api/variants/{id}/reduce-stock</td><td>Reduce stock</td></tr> </table>
 
 ### JSON Format
 ### ➕ POST /api/variants/items/{itemId}
