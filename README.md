@@ -42,18 +42,21 @@
 
 ### JSON Format
 ### ➕ POST /api/variants/items/{itemId}
-- {
+```json
+{
   "name": "Laptop Hitam 16GB",
   "price": 1500,
   "stock": 10
 }
+```
 ### ✏️ PUT /api/variants/{id}
-- {
+```json
+{
   "name": "Laptop Hitam 32GB",
   "price": 1800,
   "stock": 15
 }
-
+```
 ### 🟥 STOCK OPERATIONS
 ### ➕ Add Stock
 - POST /api/variants/{id}/add-stock
