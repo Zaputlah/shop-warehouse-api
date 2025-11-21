@@ -23,17 +23,19 @@
 
 ### JSON Format
 ### ➕ POST /api/items
-- {
+```json
+{
   "name": "Laptop",
   "description": "Laptop gaming 2025"
-  }
-
+}
+```
 ### ✏️ PUT /api/items/{id}
-- {
+```json
+{
   "name": "Laptop Updated",
   "description": "Spesifikasi diperbarui"
 }
-
+```
 ### 🟧 VARIANTS
 ### Endpoints
 <table> <tr> <th>Method</th> <th>Endpoint</th> <th>Deskripsi</th> </tr> <tr><td>POST</td><td>/api/variants/items/{itemId}</td><td>Create variant</td></tr> <tr><td>GET</td><td>/api/variants</td><td>Get all variants</td></tr> <tr><td>PUT</td><td>/api/variants/{variantId}</td><td>Update variant</td></tr> <tr><td>DELETE</td><td>/api/variants/{variantId}</td><td>Delete variant</td></tr> <tr><td>POST</td><td>/api/variants/{id}/add-stock</td><td>Add stock</td></tr> <tr><td>POST</td><td>/api/variants/{id}/reduce-stock</td><td>Reduce stock</td></tr> </table>
@@ -55,15 +57,18 @@
 ### 🟥 STOCK OPERATIONS
 ### ➕ Add Stock
 - POST /api/variants/{id}/add-stock
-- {
+```json
+{
   "amount": 5
 }
+```
 ### ➖ Reduce Stock
 - POST /api/variants/{id}/reduce-stock
-- {
+```json
+{
   "amount": 3
 }
-
+```
 ### ✅ On Success
 ### Json Items
 ## Response POST
