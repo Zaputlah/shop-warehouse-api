@@ -67,13 +67,16 @@
 ### ✅ On Success
 ### Json Items
 ## Response POST
+```json
 {
   "id": 1,
   "name": "Laptop",
   "description": "Laptop gaming 2025",
   "variants": null
 }
+```
 ## Response GET All
+``` json
 [
   {
     "id": 1,
@@ -82,6 +85,7 @@
     "variants": []
   }
 ]
+```
 ## Response DELETE
 connection: keep-alive 
  content-length: 0 
@@ -89,22 +93,26 @@ connection: keep-alive
  keep-alive: timeout=60 
 
 ## Response PUT
+```json
 {
   "id": 1,
   "name": "Laptop asus",
   "description": "Laptop gaming asus 2025",
   "variants": []
 }
+```
 ## Response GET ID
+```json
 {
   "id": 1,
   "name": "Laptop asus",
   "description": "Laptop gaming asus 2025",
   "variants": []
 }
-
+```
 ### Json Variant
 ## Response POST ID
+```json
 {
   "id": 1,
   "name": "Laptop Hitam 16GB",
@@ -116,7 +124,9 @@ connection: keep-alive
     "description": "Laptop gaming asus 2025"
   }
 }
+```
 ## Response GET ALL
+``` json
 [
   {
     "id": 1,
@@ -130,7 +140,9 @@ connection: keep-alive
     }
   }
 ]
+```
 ## Response PUT
+```json
 {
   "id": 1,
   "name": "Laptop Hitam 32GB",
@@ -142,7 +154,9 @@ connection: keep-alive
     "description": "Laptop gaming asus 2025"
   }
 }
+```
 ## Response add stock
+```json
 {
   "id": 1,
   "name": "Laptop Hitam 32GB",
@@ -154,7 +168,9 @@ connection: keep-alive
     "description": "Laptop gaming asus 2025"
   }
 }
+```
 ## Response reduce stock
+```json
 {
   "id": 1,
   "name": "Laptop Hitam 32GB",
@@ -166,16 +182,18 @@ connection: keep-alive
     "description": "Laptop gaming asus 2025"
   }
 }
+```
 
 ### ❌ On Failure
 ## When the name is duplicated
+```json
 {
   "timestamp": "2025-11-20T16:34:49.861+00:00",
   "status": 500,
   "error": "Internal Server Error",
   "path": "/api/variants/1"
 }
-
+```
 ### ✅ NOTES
 - Reduce stock fails if the stock is insufficient
 - Add/Reduce stock returns the latest stock
